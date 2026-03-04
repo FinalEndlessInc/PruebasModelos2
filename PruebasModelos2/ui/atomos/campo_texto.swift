@@ -26,7 +26,7 @@ struct CampoTexto: View {
                 Text(error!.error)
                     .foregroundStyle(Color.yellow)
             case .ninguno:
-                
+                Text("")
             }
             
             

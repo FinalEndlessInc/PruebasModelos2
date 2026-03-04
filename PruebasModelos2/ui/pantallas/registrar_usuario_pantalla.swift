@@ -15,8 +15,10 @@ enum CamposRegistrarUsuario: String{
 }
 
 struct RegistrarUsuario: View {
+    @Environment(ControladorGeneral.self) var controlador
+    
     @State var nombre: String = ""
-    @State var instragram: String = ""
+    @State var instagram: String = ""
     @State var edad: String = ""
     @State var apodo: String = ""
     
@@ -55,7 +57,7 @@ struct RegistrarUsuario: View {
             
             //TextField("Instagram: ", text: $instragram)
             CampoTexto(
-                entrada: $instragram,
+                entrada: $instagram,
                 placeholder: "Instagram",
                 error: error,
                 id: CamposRegistrarUsuario.instagram.rawValue
@@ -81,6 +83,7 @@ struct RegistrarUsuario: View {
                 error: "NO Tienes nombre, no seas weon y ponte uno",
                 nivel_de_error: .gravitsimo
             )
+            return
         }
         
         if(apodo.isEmpty){
@@ -88,6 +91,7 @@ struct RegistrarUsuario: View {
                 campo: CamposRegistrarUsuario.apodo.rawValue,
                 error: "Apodo no valido, porfa selecciona otro",
                 nivel_de_error: .gravitsimo)
+            return
         }
         
         if(edad.isEmpty){
@@ -95,14 +99,23 @@ struct RegistrarUsuario: View {
                 campo: CamposRegistrarUsuario.edad.rawValue,
                 error: "Edad no valida, porfa selecciona otra",
                 nivel_de_error: .gravitsimo)
+            return
         }
         
-        if(instragram.isEmpty){
+        if(instagram.isEmpty){
             error = ErrorUI(
                 campo: CamposRegistrarUsuario.instagram.rawValue,
                 error: "instagram no valido, porfa selecciona otro",
                 nivel_de_error: .gravitsimo)
+            return
         }
+        
+        controlador.agregar_usuario(crear_usuario())
+        
+        nombre = ""
+        apodo = ""
+        edad = ""
+        instagram = ""
     }
        
     func  crear_usuario() -> Usuario{
@@ -110,11 +123,12 @@ struct RegistrarUsuario: View {
             nombre: nombre,
             edad: Int(edad)!,
             apodo: apodo,
-            instagram: instragram
+            instagram: instagram
         )
     }
 }
 
 #Preview {
     RegistrarUsuario()
+        .environment(ControladorGeneral())
 }
