@@ -14,4 +14,5 @@ struct Usuario: Identifiable{
     let edad: Int
     let apodo: String
     let instagram: String
+    var conectado: Bool = false
 }
