@@ -16,6 +16,14 @@ struct CampoTexto: View {
     
     var body: some View {
         TextField(placeholder, text: $entrada)
+            .frame(height: 20)
+            .padding(10)
+            .overlay{
+                RoundedRectangle(cornerRadius: 5, style: .circular)
+                    .stroke(.white, lineWidth: 2)
+            }
+            .background(Color("fondo_mensajes"))
+            .foregroundStyle(Color.white)
         
         if(error?.campo == id){
             switch error!.nivel_de_error {
@@ -33,3 +41,4 @@ struct CampoTexto: View {
         }
     }
 }
+

@@ -7,5 +7,7 @@
 
 let usuarios_falsos: [Usuario] = [
     Usuario(nombre: "Kaih", edad: 38, apodo: "El boludo", instagram: "KaihSunmelter"),
-    Usuario(nombre: "Duke", edad: 45, apodo: "El fachero", instagram: "ArchDuke")
+    Usuario(nombre: "Duke", edad: 45, apodo: "El fachero", instagram: "ArchDuke", conectado: true),
+    Usuario(nombre: "Goldfield", edad: 41, apodo: "El nerd", instagram: "M.Goldfield"),
+    Usuario(nombre: "Uriel", edad: 1000, apodo: "God", instagram: "DivineUriel")
 ]

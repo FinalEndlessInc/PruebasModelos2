@@ -10,28 +10,39 @@ import SwiftUI
 struct PrevistaMensaje: View {
     var mensaje: Mensaje
     
+    
     var body: some View {
-        HStack{
-            Image(systemName: "message")
-                .resizable()
-                .scaledToFit()
-                .frame(width:50)
+        ZStack{
+            Rectangle()
+                .frame(height: 75)
+                .cornerRadius(25)
+                .foregroundStyle(Color("fondo_mensajes"))
             
-            VStack(alignment: .leading){
-                HStack{
-                    Text("\(mensaje.id_usuario ?? "Anonimo")")
-                    Spacer()
+            HStack{
+                Image(systemName: "message")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:50)
+                
+                VStack(alignment: .leading){
+                    HStack{
+                        Text("\(mensaje.id_usuario ?? "Anonimo")")
+                            .bold()
+                        Spacer()
+                    }
+                    Text("\(mensaje.texto)")
                 }
-                Text("\(mensaje.texto)")
+                Spacer()
             }
-            Spacer()
+            .padding()
+            .frame(height: 75)
+            .foregroundStyle(Color.white)
+            .overlay{
+                RoundedRectangle(cornerRadius: 25, style: .circular)
+                    .stroke(.white, lineWidth: 2)
+            }
         }
-        .padding()
-        .frame(height: 75)
-        .overlay{
-            RoundedRectangle(cornerRadius: 25, style: .circular)
-                .stroke(.black, lineWidth: 2)
-        }
+        
     }
         
 }

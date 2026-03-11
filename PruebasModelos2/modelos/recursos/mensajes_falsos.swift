@@ -8,5 +8,6 @@
 let mensajes_falsos: [Mensaje] = [
     Mensaje(texto: "activo torre, me lo voy a cargar", id_usuario: "Kaih"),
     Mensaje(texto: "no nada, me papearon", id_usuario: "Kaih"),
-    Mensaje(texto: "x d, cookearon al Kaih", id_usuario: "Duke")
+    Mensaje(texto: "x d, cookearon al Kaih", id_usuario: "Duke"),
+    Mensaje(texto: "Ya calmense y ponganse a chambiar", id_usuario: "Uriel")
 ]

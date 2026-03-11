@@ -15,4 +15,5 @@ struct Usuario: Identifiable{
     let apodo: String
     let instagram: String
     var conectado: Bool = false
+    let foto_de_perfil: String = "person.fill"
 }

@@ -12,19 +12,24 @@ struct EtiquetaUsuarioPerfil: View {
     
     var body: some View {
         VStack{
-            Text("Esta conectado el: ")
-            ZStack(alignment: .bottom){
-                Image("amogus")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100)
-                    .clipShape(Circle())
-                HStack{
-                    Text("\(usuario.apodo)")
-                        .foregroundStyle(Color.indigo)
-                    Circle()
-                        .frame(width: 15)
-                        .foregroundStyle(usuario.conectado ? Color.green: Color.red)
+            ZStack{
+                Rectangle()
+                    .frame(width: 140, height: 140)
+                    .foregroundStyle(Color.mint)
+                    .opacity(0.0)
+                VStack{
+                    Image("amogus")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100)
+                        .clipShape(Circle())
+                    HStack{
+                        Text("\(usuario.apodo)")
+                            .foregroundStyle(Color.white)
+                        Circle()
+                            .frame(width: 15)
+                            .foregroundStyle(usuario.conectado ? Color.green: Color.red)
+                    }
                 }
             }
         }

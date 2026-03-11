@@ -28,52 +28,72 @@ struct RegistrarUsuario: View {
     
     var body: some View {
         VStack{
+            Spacer()
             if(error != nil){
                 Text("Hay un problema, por favor resuelve")
                 
             }
-            //TextField("Nombre: ", text: $nombre)
-            CampoTexto(
-                entrada: $nombre,
-                placeholder: "Nombre",
-                error: error,
-                id: CamposRegistrarUsuario.nombre.rawValue
-            )
+            Text("Agregar contacto")
+                .font(.system(size: 35, weight: .bold, design: .rounded))
+                .bold()
+                .foregroundStyle(Color.white)
             
-            //TextField("Apodo: ", text: $apodo)
-            CampoTexto(
-                entrada: $apodo,
-                placeholder: "Apodo",
-                error: error,
-                id: CamposRegistrarUsuario.apodo.rawValue
-            )
+            VStack{
+                //TextField("Nombre: ", text: $nombre)
+                CampoTexto(
+                    entrada: $nombre,
+                    placeholder: "Nombre",
+                    error: error,
+                    id: CamposRegistrarUsuario.nombre.rawValue
+                )
+                
+                //TextField("Apodo: ", text: $apodo)
+                CampoTexto(
+                    entrada: $apodo,
+                    placeholder: "Apodo",
+                    error: error,
+                    id: CamposRegistrarUsuario.apodo.rawValue
+                )
+                
+                //TextField("Edad: ", text: $edad)
+                CampoTexto(
+                    entrada: $edad,
+                    placeholder: "Edad",
+                    error: error,
+                    id: CamposRegistrarUsuario.edad.rawValue
+                )
+                
+                //TextField("Instagram: ", text: $instragram)
+                CampoTexto(
+                    entrada: $instagram,
+                    placeholder: "Instagram",
+                    error: error,
+                    id: CamposRegistrarUsuario.instagram.rawValue
+                )
+            }.padding(10)
             
-            //TextField("Edad: ", text: $edad)
-            CampoTexto(
-                entrada: $edad,
-                placeholder: "Edad",
-                error: error,
-                id: CamposRegistrarUsuario.edad.rawValue
-            )
-            
-            //TextField("Instagram: ", text: $instragram)
-            CampoTexto(
-                entrada: $instagram,
-                placeholder: "Instagram",
-                error: error,
-                id: CamposRegistrarUsuario.instagram.rawValue
-            )
             
             Button(action: {
                 validar_entradas()
             }){
                 VStack{
                     Text("Agregar usuario")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
                     Image(systemName: "person.fill.badge.plus")
                 }
             }
+            .padding(15)
+            .foregroundStyle(Color.white)
+            .background(Color("fondo_mensajes"))
+            .cornerRadius(25)
+            .overlay{
+                RoundedRectangle(cornerRadius: 25, style: .circular)
+                    .stroke(.white, lineWidth: 2)
+            }
+            Spacer()
         }
         .padding()
+        .background(Color("fondo"))
     
     }
     
@@ -124,7 +144,8 @@ struct RegistrarUsuario: View {
             nombre: nombre,
             edad: Int(edad)!,
             apodo: apodo,
-            instagram: instagram
+            instagram: instagram,
+            conectado: false
         )
     }
 }
