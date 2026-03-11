@@ -18,7 +18,7 @@ struct EtiquetaUsuarioPerfil: View {
                     .foregroundStyle(Color.mint)
                     .opacity(0.0)
                 VStack{
-                    Image("amogus")
+                    Image(usuario.foto_de_perfil)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100)

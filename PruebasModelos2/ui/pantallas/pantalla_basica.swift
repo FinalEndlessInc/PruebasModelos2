@@ -13,11 +13,11 @@ struct PantallaBasica: View {
     
     var body: some View {
         ZStack{
-            
             VStack{
                 Spacer()
                 HStack{
                     Text("Conectados: \(gente_conectada)")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
                         .foregroundStyle(Color.white)
                     Spacer()
                 }.padding(10)
@@ -51,12 +51,13 @@ struct PantallaBasica: View {
                     LazyVStack{
                         ForEach(controlador.mensajes){ mensaje in
                             NavigationLink{
-                                Text("Mensaje: \(mensaje.texto)")
+                                VerMensajePantalla(detallesMensaje: mensaje)
                             }
                                 label:{
                                     PrevistaMensaje(mensaje: mensaje)
                                 }
                                 .padding(10)
+                          
                         }
                     }
                 }

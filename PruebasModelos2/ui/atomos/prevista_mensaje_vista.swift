@@ -19,10 +19,11 @@ struct PrevistaMensaje: View {
                 .foregroundStyle(Color("fondo_mensajes"))
             
             HStack{
-                Image(systemName: "message")
+                Image("amogus")
                     .resizable()
                     .scaledToFit()
                     .frame(width:50)
+                    .clipShape(Circle())
                 
                 VStack(alignment: .leading){
                     HStack{
